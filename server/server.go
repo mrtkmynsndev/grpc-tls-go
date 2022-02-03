@@ -49,6 +49,7 @@ func main() {
 
 	conf := &tls.Config{
 		Certificates: []tls.Certificate{serverCert},
+		ClientAuth:   tls.RequireAndVerifyClientCert,
 		ClientCAs:    certPool,
 	}
 

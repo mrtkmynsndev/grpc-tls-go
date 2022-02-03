@@ -1,3 +1,15 @@
+.PHONY: cert
+cert:
+		cd cert; sh ./gen.sh; cd ..
+
+.PHONY: server
+server:
+		go run server/server.go
+
+.PHONY: client
+client:
+		go run client/client.go
+
 .PHONY: generate
 generate:
 		protoc --go_out=. --go_opt=paths=source_relative \

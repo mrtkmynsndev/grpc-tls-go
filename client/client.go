@@ -26,8 +26,15 @@ func main() {
 		log.Fatal(err)
 	}
 
+	// read client cert
+	clientCert, err := tls.LoadX509KeyPair("cert/client-cert.pem", "cert/client-key.pem")
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	config := &tls.Config{
-		RootCAs: certPool,
+		Certificates: []tls.Certificate{clientCert},
+		RootCAs:      certPool,
 	}
 
 	tlsCredential := credentials.NewTLS(config)
