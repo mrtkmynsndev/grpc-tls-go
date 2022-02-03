@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"log"
 	"net"
 
@@ -10,6 +11,11 @@ import (
 
 type greeterService struct {
 	pb.UnimplementedGreeterServiceServer
+}
+
+func (s *greeterService) SayHello(ctx context.Context, request *pb.HelloRequest) (*pb.HelloReply, error) {
+	log.Printf("received name: %v", request.GetName())
+	return &pb.HelloReply{Message: "Hello " + request.GetName()}, nil
 }
 
 func main() {
