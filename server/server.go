@@ -29,7 +29,7 @@ func main() {
 		log.Fatalf("list port err: %v", err)
 	}
 
-	// read ca's cert
+	// read ca's cert, verify to client's certificate
 	caPem, err := ioutil.ReadFile("cert/ca-cert.pem")
 	if err != nil {
 		log.Fatal(err)
@@ -47,6 +47,7 @@ func main() {
 		log.Fatal(err)
 	}
 
+	// configuration of the certificate what we want to
 	conf := &tls.Config{
 		Certificates: []tls.Certificate{serverCert},
 		ClientAuth:   tls.RequireAndVerifyClientCert,

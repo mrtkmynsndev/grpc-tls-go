@@ -26,7 +26,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// read client cert
+	//read client cert
 	clientCert, err := tls.LoadX509KeyPair("cert/client-cert.pem", "cert/client-key.pem")
 	if err != nil {
 		log.Fatal(err)
