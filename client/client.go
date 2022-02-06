@@ -39,6 +39,7 @@ func main() {
 
 	tlsCredential := credentials.NewTLS(config)
 
+	// create client connection
 	conn, err := grpc.Dial(
 		"0.0.0.0:9000",
 		grpc.WithTransportCredentials(tlsCredential),
