@@ -1,6 +1,6 @@
 .PHONY: cert
 cert:
-		cd cert; sh ./gen.sh; cd ..
+		cd cert; sh ./generator.sh; cd ..
 
 .PHONY: server
 server:

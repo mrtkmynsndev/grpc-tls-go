@@ -32,3 +32,6 @@ echo "Client's signed certificate"
 openssl x509 -in client-cert.pem -noout -text
 
 
+
+
+
